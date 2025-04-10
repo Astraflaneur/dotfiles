@@ -1,0 +1,15 @@
+cat <<EOF > .gitignore
+*.pyc
+__pycache__/
+*.swp
+*.bak
+*.DS_Store
+.bash_logout
+.lesshst
+.profile
+.pystartup
+.python_history
+.viminfo
+.wget-hsts
+.zcompdump
+EOF

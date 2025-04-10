@@ -1,0 +1,105 @@
+# ~/.functions - Astraflaneur Edition
+# Author: Sagar P. Barad | 2025
+# created: 2024-12-21 | updated: 2025-10-01
+
+gen_ssh_key() {
+  local email="${1:-sagar.barad@niser.ac.in}"  # default email
+  local key_file="$HOME/.ssh/id_ed25519"
+
+
+  echo "🔧 Generating new SSH key for $email..."
+  ssh-keygen -t ed25519 -C "$email" -f "$key_file" -N ""
+  eval "$(ssh-agent -s)"
+  ssh-add "$key_file"
+  echo "✅ SSH key generated."
+  
+
+  echo "📋 Public Key:"
+  echo "--------------------------------------------------"
+  cat "$key_file.pub"
+  echo "--------------------------------------------------"
+  echo "📎 You can now paste this key to GitHub → https://github.com/settings/keys"
+}
+
+copy_ssh_key() {
+  local email="${1:-sagar.barad@niser.ac.in}"  # default email
+  local key_file="$HOME/.ssh/id_ed25519"
+
+  if [[ -f "$key_file" ]]; then
+    echo "🔑 SSH key already exists at $key_file"
+    
+    echo "📋 Public Key:"
+    echo "--------------------------------------------------"
+    cat "$key_file.pub"
+    echo "--------------------------------------------------"
+    echo "📎 You can now paste this key to GitHub → https://github.com/settings/keys"
+  else
+    echo "❌ xclip not found or SSH key doesn't exist."
+  fi
+}
+
+#///////////////////////////////////////////////////////////////////////////////
+#//                       Astraflaneur – Git Quick Functions                  //
+#///////////////////////////////////////////////////////////////////////////////
+
+# 🚀 Initialize Git in current folder
+git_init_here() {
+  if [ -d ".git" ]; then
+    echo "📂 Already a Git repository."
+  else
+    git init
+    touch README.md
+    git add README.md
+    git commit -m "Initial commit"
+    echo "✅ Git initialized with README.md"
+  fi
+}
+
+# 🔧 Setup Git remote
+git_add_remote() {
+  read -p "🔗 Enter remote repo SSH/HTTPS URL: " url
+  git remote add origin "$url"
+  echo "✅ Remote 'origin' set to: $url"
+}
+
+# 🌿 Create and switch to a new branch
+git_new_branch() {
+  read -p "🌿 New branch name: " branch
+  git checkout -b "$branch"
+  echo "✅ Switched to branch '$branch'"
+}
+
+# 🚀 Push current branch to origin
+git_push_origin() {
+  branch=$(git symbolic-ref --short HEAD)
+  git push -u origin "$branch"
+  echo "📤 Pushed branch '$branch' to origin."
+}
+
+# git configure
+git_help_configure() {
+  read -p "📝 Enter your full name: " name
+  read -p "📧 Enter your Git email: " email
+
+  git config --global user.name "$name"
+  git config --global user.email "$email"
+  git config --global init.defaultBranch main
+  git config --global core.editor nano
+  git config --global color.ui auto
+
+  echo "✅ Git configured with:"
+  echo "   Name:  $name"
+  echo "   Email: $email"
+}
+
+gcommit() {
+  if [[ -z "$1" ]]; then
+    read -p "💬 Enter commit message: " msg
+  else
+    msg="$1"
+  fi
+
+  git add .
+  git commit -m "$msg"
+  echo "✅ Committed: '$msg'"
+}

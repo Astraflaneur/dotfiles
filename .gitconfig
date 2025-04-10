@@ -1,0 +1,19 @@
+[user]
+	email = sagar.barad@niser.ac.in
+	name = Sagar
+[credential]
+	helper = store
+[core]
+	editor = nano
+[pull]
+	rebase = false
+[init]
+	defaultBranch = main
+[color]
+	ui = auto
+[alias]
+	st = status
+	co = checkout
+	br = branch
+	cm = commit -m
+	last = log -1 HEAD
