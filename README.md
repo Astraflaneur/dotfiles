@@ -1,6 +1,6 @@
 # 🧠 Astraflaneur Dotfiles
 
-My personal Linux/Unix development setup — fully portable and optimized for machine learning, research, and smooth CLI experience.
+My personal Linux/Unix development setup, fully portable and optimized for machine learning, research, and smooth CLI experience.
 
 ## 📦 What’s Inside
 
