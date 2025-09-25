@@ -1,8 +1,8 @@
-# 🧠 Astraflaneur Dotfiles
+# Astraflaneur Dotfiles
 
 My personal Linux/Unix development setup, fully portable and optimized for machine learning, research, and smooth CLI experience.
 
-## 📦 What’s Inside
+## What’s Inside
 
 - `.bashrc` with quality-of-life tweaks
 - Aliases and Git helpers
@@ -11,7 +11,7 @@ My personal Linux/Unix development setup, fully portable and optimized for machi
 - ASCII banners + install automation
 - Custom functions and environment scripts
 
-## 🚀 Quick Setup
+## Quick Setup
 
 ```bash
 git clone git@github.com:Astraflaneur/dotfiles.git ~/.dotfiles
@@ -19,14 +19,14 @@ cd ~/.dotfiles
 bash install.sh
 ```
 
-## 🛠️ Manual Symlinks (if needed)
+## Manual Symlinks (if needed)
 
 ```bash
 \ln -sf ~/.dotfiles/.bashrc ~/.bashrc
 ln -sf ~/.dotfiles/aliases ~/.aliases
 ```
 
-## 🔐 SSH & Git Setup
+## SSH & Git Setup
 Run:
 
 ```bash
@@ -37,4 +37,4 @@ git_help_configure
 
 ---
 
-✨ Made with care by **Sagar P. Barad** · 2025 · Astraflaneur 🛰️
+✨ Made with care by **Sagar P. Barad** · 2025 · Astraflaneur 

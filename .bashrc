@@ -53,7 +53,7 @@ export WANDB_CONSOLE="wrap"
 # 📊 System Info on Login
 #---------------------------------------------------------------
 function show_sysinfo() {
-  echo -e "🧠 $(nproc) Cores | 🧬 $(free -h | awk '/Mem:/ {print $2 " RAM"}') | 🧠 GPU: $(nvidia-smi --query-gpu=name --format=csv,noheader | head -n 1)"
+  echo -e "$(nproc) Cores | 🧬 $(free -h | awk '/Mem:/ {print $2 " RAM"}') | GPU: $(nvidia-smi --query-gpu=name --format=csv,noheader | head -n 1)"
 }
 show_sysinfo
 
